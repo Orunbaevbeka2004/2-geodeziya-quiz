@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Геодезия Quizizz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-shape shape-1"></div>
+  <div class="bg-shape shape-2"></div>
+  <div class="app">
+    <section id="start-screen" class="screen active glass start-card">
+      <div class="pill">Quizizz style</div>
+      <h1>Геодезия Quiz</h1>
+      <p>30 сұрақ. Әр сұраққа 30 секунд. Дұрыс жауапқа ұпай беріледі.</p>
+      <label class="name-label" for="player-name">Атыңызды енгізіңіз</label>
+      <input id="player-name" type="text" placeholder="Мысалы: Bekzat" maxlength="30" />
+      <div class="settings-row">
+        <label><input id="shuffle-toggle" type="checkbox" checked /> Сұрақтарды араластыру</label>
+        <label><input id="sound-toggle" type="checkbox" checked /> Дыбыс</label>
+      </div>
+      <button id="start-btn" class="primary-btn">Бастау</button>
+      <button id="demo-btn" class="ghost-btn">Ережені көру</button>
+    </section>
+
+    <section id="quiz-screen" class="screen quiz-layout">
+      <header class="topbar glass">
+        <div>
+          <div class="small-label">Ойыншы</div>
+          <strong id="player-label">Player</strong>
+        </div>
+        <div class="score-box">
+          <span>Ұпай</span>
+          <strong id="score-label">0</strong>
+        </div>
+        <div class="timer-wrap">
+          <svg class="timer-ring" viewBox="0 0 42 42">
+            <circle class="ring-bg" cx="21" cy="21" r="18"></circle>
+            <circle id="timer-ring" class="ring" cx="21" cy="21" r="18"></circle>
+          </svg>
+          <strong id="timer-label">30</strong>
+        </div>
+      </header>
+
+      <main class="question-card glass">
+        <div class="question-meta">
+          <span id="question-count">1 / 30</span>
+          <span id="streak-label">🔥 Серия: 0</span>
+        </div>
+        <div class="progress"><span id="progress-bar"></span></div>
+        <h2 id="question-text">Сұрақ</h2>
+        <div id="options" class="options-grid"></div>
+        <div id="feedback" class="feedback hidden"></div>
+        <div class="actions">
+          <button id="skip-btn" class="ghost-btn">Өткізу</button>
+          <button id="next-btn" class="primary-btn hidden">Келесі</button>
+        </div>
+      </main>
+    </section>
+
+    <section id="result-screen" class="screen glass result-card">
+      <div class="pill">Нәтиже</div>
+      <h1 id="result-title">Жақсы!</h1>
+      <div class="big-score" id="final-score">0 / 30</div>
+      <p id="final-details"></p>
+      <div class="leaderboard">
+        <h3>Көшбасшылар тақтасы</h3>
+        <ol id="leaderboard-list"></ol>
+      </div>
+      <details class="review-box">
+        <summary>Қателерді қарау</summary>
+        <div id="review-list"></div>
+      </details>
+      <button id="restart-btn" class="primary-btn">Қайта бастау</button>
+    </section>
+
+    <div id="modal" class="modal hidden">
+      <div class="modal-content glass">
+        <button id="close-modal" class="close-btn">×</button>
+        <h2>Ереже</h2>
+        <p>Әр сұраққа 30 секунд беріледі. Дұрыс жауапты таңдағаннан кейін бірден дұрыс/бұрыс көрсетіледі.</p>
+        <p>Ұпай уақытқа байланысты есептеледі: тез жауап берсеңіз, көбірек ұпай аласыз.</p>
+      </div>
+    </div>
+  </div>
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
